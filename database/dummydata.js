@@ -1,5 +1,6 @@
 const faker = require('faker');
 
+////////Helper Functions///////
 const getRandomInt = (max) => {
   return Math.floor(Math.random() * Math.floor(max));
 }
@@ -8,9 +9,18 @@ const getRandomBoolean = ()=> {
   return Math.round((Math.random() * 1) + 0) === 0;
 }
 
+/////////Configurations/////////
+
+var NUM_OF_USERS = 300;
+var NUM_OF_ROOMS = 100;
+var NUM_OF_HOSTS = 80;
+var NUM_OF_MESSAGES = 2000;
+
+///////Table Generators/////////
+
 const createUsersTableData = () => {
   var dummyData = [];
-  for (var i = 0; i < 300; i++) {
+  for (var i = 0; i < NUM_OF_USERS - 1; i++) {
     dummyData.push({ 
       firstName: faker.name.firstName(), 
       lastName: faker.name.lastName(), 
@@ -22,10 +32,10 @@ const createUsersTableData = () => {
  
 var createRoomsTableData = () => {
   var dummyData = [];
-  for (var i = 0; i < 100; i++) {
+  for (var i = 0; i < NUM_OF_ROOMS - 1; i++) {
     dummyData.push({
       name: faker.lorem.words(),
-      host_id: getRandomInt(99), 
+      host_id: getRandomInt(NUM_OF_USERS - 1), 
     })
   }
   return dummyData;
@@ -33,10 +43,10 @@ var createRoomsTableData = () => {
 
 var createMessagesTableData = () => {
   var dummyData = [];
-  for (var i = 0; i < 10; i++) {
+  for (var i = 0; i <   NUM_OF_MESSAGES - 1; i++) {
     dummyData.push({
-      reviewer_id: getRandomInt(299),
-      room_id: getRandomInt(99),
+      reviewer_id: getRandomInt(NUM_OF_USERS - 1),
+      room_id: getRandomInt(NUM_OF_ROOMS - 1),
       review_data: faker.date.past(),
       review_text: faker.lorem.paragraph(),
       reviewIsEnglish: getRandomBoolean(),
@@ -48,12 +58,15 @@ var createMessagesTableData = () => {
       stars_location: getRandomInt(5),
       stars_checkin: getRandomInt(5),
       stars_cleanliness: getRandomInt(5),
-      stars_value: getRandomInt(5)
+      stars_value: getRandomInt(5),
     })
   }
   return dummyData;
 }
 
-var usersTableData = createUsersTableData();
-var roomsTableData = createRoomsTableData();
-var messagesTableData = createMessagesTableData();
+console.log(createMessagesTableData());
+module.exports = {
+  createUsersTableData,
+  createRoomsTableData,
+  createMessagesTableData,
+}
