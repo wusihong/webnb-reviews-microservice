@@ -13,7 +13,7 @@ const getRandomBoolean = ()=> {
 
 var NUM_OF_USERS = 300;
 var NUM_OF_ROOMS = 100;
-var NUM_OF_MESSAGES = 4000;
+var NUM_OF_MESSAGES = 5;
 
 ///////Table Generators/////////
 
@@ -40,16 +40,16 @@ var createRoomsTableData = () => {
   return dummyData;
 }
 
-var createMessagesTableData = () => {
+var createReviewsTableData = () => {
   var dummyData = [];
   for (var i = 0; i < NUM_OF_MESSAGES; i++) {
     dummyData.push({
       reviewer_id: getRandomInt(NUM_OF_USERS),
       room_id: getRandomInt(NUM_OF_ROOMS),
-      review_data: faker.date.past(),
+      review_date: faker.date.past(),
       review_text: faker.lorem.paragraph(),
       reviewIsEnglish: getRandomBoolean(),
-      review_text_english: faker.lorem.paragraph(), 
+      review_text_eng: faker.lorem.paragraph(), 
       hasHostResponse: getRandomBoolean(),
       host_reply_text: faker.lorem.paragraph(), 
       stars_accuracy: getRandomInt(5), 
@@ -66,5 +66,5 @@ var createMessagesTableData = () => {
 module.exports = {
   createUsersTableData,
   createRoomsTableData,
-  createMessagesTableData,
+  createReviewsTableData,
 }
