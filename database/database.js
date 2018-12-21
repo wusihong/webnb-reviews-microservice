@@ -9,9 +9,15 @@ var connection = mysql.createConnection({
 connection.connect();
 
 const getReviewsByRoomId = (roomid, callback) => {
-  var queryStr = `SELECT * FROM reviews WHERE room_id=${roomid}`;
+  var queryStr = `SELECT u.first_name, r.room_id, r.review_date, 
+   r.review_text, r.review_is_english, r.review_text_eng, r.has_host_response,
+   r.host_reply_text FROM users u, reviews r WHERE r.room_id=${roomid} AND u.id=r.reviewer_id;`;
 
-  // select u.firstName, u.lastName, r.review_text from users u, reviews r where r.room_id=2 AND r.reviewer_id=u.id;
+  // var queryStr = `SELECT users.first_name, reviews.room_id, reviews.review_date, 
+  // reviews.review_text, reviews.review_is_english, reviews.review_text_eng, reviews.has_host_response,
+  // reviews.host_reply_text 
+  // FROM reviews INNER JOIN users ON reviews.reviewer_id = users.id
+  // WHERE reviews.room_id=${roomid};`
 
   connection.query(queryStr, (err, results) => {
     if(err) {
@@ -19,6 +25,7 @@ const getReviewsByRoomId = (roomid, callback) => {
       // callback(err)
     } else {
       console.log(results);
+      console.log(results.length)
       // callback(null, results);
     }
   })
@@ -43,6 +50,8 @@ const getAverageStarsByRoomId = (roomid, callback) => {
     }
   })
 }
+
+getReviewsByRoomId(1);
 
 // connection.end();
 
