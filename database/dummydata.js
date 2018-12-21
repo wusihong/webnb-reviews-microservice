@@ -13,8 +13,7 @@ const getRandomBoolean = ()=> {
 
 var NUM_OF_USERS = 300;
 var NUM_OF_ROOMS = 100;
-var NUM_OF_HOSTS = 80;
-var NUM_OF_MESSAGES = 2000;
+var NUM_OF_MESSAGES = 4000;
 
 ///////Table Generators/////////
 
@@ -64,7 +63,6 @@ var createMessagesTableData = () => {
   return dummyData;
 }
 
-console.log(createMessagesTableData());
 module.exports = {
   createUsersTableData,
   createRoomsTableData,
