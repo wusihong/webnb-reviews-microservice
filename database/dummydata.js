@@ -39,7 +39,7 @@ const createUsersTableData = () => {
   }
   return dummyData; 
 }
- 
+
 var createRoomsTableData = () => {
   var dummyData = [];
   for (var i = 0; i < NUM_OF_ROOMS; i++) {
@@ -82,7 +82,7 @@ var seedTable = (tableGeneratorFunc, queryStr, params) => {
     params.forEach((string) => {
       rowParams.push(row[string]);
     })
-    database.query(queryStr, rowParams, (err, results) => {
+    database.connection.query(queryStr, rowParams, (err, results) => {
       if (err) {
         console.log(err);
       } else {

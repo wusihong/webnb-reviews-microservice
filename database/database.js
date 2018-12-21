@@ -22,12 +22,9 @@ const getReviewsByRoomId = (roomid, callback) => {
 
   connection.query(queryStr, (err, results) => {
     if(err) {
-      console.log(err);
-      // callback(err)
+      callback(err)
     } else {
-      console.log(results);
-      console.log(results.length)
-      // callback(null, results);
+      callback(null, results);
     }
   })
 }
@@ -41,12 +38,9 @@ const getReviewsByRoomIdAndQueryTerm = (roomid, queryTerm, callback) => {
 
   connection.query(queryStr, (err, results) => {
     if(err) {
-      console.log(err);
-      // callback(err)
+      callback(err)
     } else {
-      console.log(results)
-      console.log(results.length)
-      // callback(null, results);
+      callback(null, results);
     }
   })
 }
@@ -58,17 +52,18 @@ const getAverageStarsByRoomId = (roomid, callback) => {
 
   connection.query(queryStr, (err, results) => {
     if(err) {
-      console.log(err);
-      // callback(err)
+      callback(err)
     } else {
-      console.log(results);
-      console.log(results.length);
-      // callback(null, results);
+      callback(null, results);
     }
   })
 }
 
-connection.end();
+// connection.end();
 
-module.exports = connection;
-
+module.exports = {
+  connection,
+  getReviewsByRoomId,
+  getReviewsByRoomIdAndQueryTerm,
+  getAverageStarsByRoomId,
+}
