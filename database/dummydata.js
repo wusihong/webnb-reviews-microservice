@@ -1,6 +1,23 @@
+const database = require('./database.js')
 const faker = require('faker');
 
+/////////Configurations/////////
+
+var NUM_OF_USERS = 300;
+var NUM_OF_ROOMS = 100;
+var NUM_OF_MESSAGES = 3000;
+
+var usersQueryStr = `INSERT INTO users (firstName, lastName, image_photo_path) VALUES (?, ?, ?);`;
+var usersParams = ['firstName', 'lastName', 'image_photo_path'];
+
+var roomsQueryStr = `INSERT INTO rooms (name, host_id) VALUES (?, ?);`;
+var roomsParams = ['name', 'host_id'];
+
+var reviewsQueryStr = `INSERT INTO reviews (reviewer_id, room_id, review_date, review_text, reviewIsEnglish, review_text_eng, hasHostResponse, host_reply_text, stars_accuracy, stars_communication, stars_location, stars_checkin, stars_cleanliness, stars_value) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);`;
+var reviewsParams = ['reviewer_id', 'room_id', 'review_date', 'review_text', 'reviewIsEnglish', 'review_text_eng', 'hasHostResponse', 'host_reply_text', 'stars_accuracy', 'stars_communication', 'stars_location', 'stars_checkin', 'stars_cleanliness', 'stars_value'];
+
 ////////Helper Functions///////
+
 const getRandomInt = (max) => {
   return Math.floor(Math.random() * Math.floor(max));
 }
@@ -8,12 +25,6 @@ const getRandomInt = (max) => {
 const getRandomBoolean = ()=> {
   return Math.round((Math.random() * 1) + 0) === 0;
 }
-
-/////////Configurations/////////
-
-var NUM_OF_USERS = 300;
-var NUM_OF_ROOMS = 100;
-var NUM_OF_MESSAGES = 5;
 
 ///////Table Generators/////////
 
@@ -63,8 +74,25 @@ var createReviewsTableData = () => {
   return dummyData;
 }
 
-module.exports = {
-  createUsersTableData,
-  createRoomsTableData,
-  createReviewsTableData,
+var seedTable = (tableGeneratorFunc, queryStr, params) => {
+  var usersDummyData = tableGeneratorFunc();
+
+  usersDummyData.forEach((row) => {
+    var rowParams = []
+    params.forEach((string) => {
+      rowParams.push(row[string]);
+    })
+    database.query(queryStr, rowParams, (err, results) => {
+      if (err) {
+        console.log(err);
+      } else {
+        console.log(results)
+      }
+    })
+  })
 }
+
+seedTable(createUsersTableData, usersQueryStr, usersParams);
+seedTable(createRoomsTableData, roomsQueryStr, roomsParams);
+seedTable(createReviewsTableData, reviewsQueryStr, reviewsParams);
+
