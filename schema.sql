@@ -24,7 +24,7 @@ CREATE TABLE reviews (
  room_id INT,
  review_date DATE,
  review_text VARCHAR(700),
- review_in_english BOOLEAN, 
+ review_is_english BOOLEAN, 
  review_text_eng VARCHAR(700),
  has_host_response BOOLEAN, 
  host_reply_text VARCHAR(700),
