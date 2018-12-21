@@ -4,8 +4,8 @@ USE airbnb;
 
 CREATE TABLE users (
  id INT AUTO_INCREMENT PRIMARY KEY,
- firstName VARCHAR(20),
- lastName VARCHAR(20),
+ first_name VARCHAR(20), 
+ last_name VARCHAR(20),
  image_photo_path VARCHAR(200)
 );
 
@@ -24,9 +24,9 @@ CREATE TABLE reviews (
  room_id INT,
  review_date DATE,
  review_text VARCHAR(700),
- reviewIsEnglish BOOLEAN, 
+ review_in_english BOOLEAN, 
  review_text_eng VARCHAR(700),
- hasHostResponse BOOLEAN, 
+ has_host_response BOOLEAN, 
  host_reply_text VARCHAR(700),
  stars_accuracy INT,
  stars_communication INT,
