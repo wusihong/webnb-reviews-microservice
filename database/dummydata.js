@@ -19,7 +19,7 @@ var NUM_OF_MESSAGES = 4000;
 
 const createUsersTableData = () => {
   var dummyData = [];
-  for (var i = 0; i < NUM_OF_USERS - 1; i++) {
+  for (var i = 0; i < NUM_OF_USERS; i++) {
     dummyData.push({ 
       firstName: faker.name.firstName(), 
       lastName: faker.name.lastName(), 
@@ -31,10 +31,10 @@ const createUsersTableData = () => {
  
 var createRoomsTableData = () => {
   var dummyData = [];
-  for (var i = 0; i < NUM_OF_ROOMS - 1; i++) {
+  for (var i = 0; i < NUM_OF_ROOMS; i++) {
     dummyData.push({
       name: faker.lorem.words(),
-      host_id: getRandomInt(NUM_OF_USERS - 1), 
+      host_id: getRandomInt(NUM_OF_USERS), 
     })
   }
   return dummyData;
@@ -42,10 +42,10 @@ var createRoomsTableData = () => {
 
 var createMessagesTableData = () => {
   var dummyData = [];
-  for (var i = 0; i <   NUM_OF_MESSAGES - 1; i++) {
+  for (var i = 0; i < NUM_OF_MESSAGES; i++) {
     dummyData.push({
-      reviewer_id: getRandomInt(NUM_OF_USERS - 1),
-      room_id: getRandomInt(NUM_OF_ROOMS - 1),
+      reviewer_id: getRandomInt(NUM_OF_USERS),
+      room_id: getRandomInt(NUM_OF_ROOMS),
       review_data: faker.date.past(),
       review_text: faker.lorem.paragraph(),
       reviewIsEnglish: getRandomBoolean(),
