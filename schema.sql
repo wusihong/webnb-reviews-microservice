@@ -14,8 +14,8 @@ CREATE TABLE rooms (
  name VARCHAR(30),
  host_id INT,
  FOREIGN KEY fk_host(host_id) REFERENCES users(id)
- ON UPDATE CASCADE
- ON DELETE RESTRICT
+--  ON UPDATE CASCADE
+--  ON DELETE RESTRICT
 );
 
 CREATE TABLE reviews (
@@ -34,10 +34,10 @@ CREATE TABLE reviews (
  stars_checkin INT, 
  stars_cleanliness INT, 
  stars_value INT, 
- FOREIGN KEY fk_reviewer(reviewer_id) REFERENCES users(id)
- ON UPDATE CASCADE
- ON DELETE RESTRICT,
+ FOREIGN KEY fk_reviewer(reviewer_id) REFERENCES users(id),
+--  ON UPDATE CASCADE
+--  ON DELETE RESTRICT,
  FOREIGN KEY fk_room(room_id) REFERENCES rooms(id)
- ON UPDATE CASCADE
- ON DELETE RESTRICT
+--  ON UPDATE CASCADE
+--  ON DELETE RESTRICT
 );
