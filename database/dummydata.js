@@ -1,6 +1,23 @@
+const database = require('./database.js')
 const faker = require('faker');
 
+/////////Configurations/////////
+
+var NUM_OF_USERS = 300;
+var NUM_OF_ROOMS = 100;
+var NUM_OF_MESSAGES = 3000;
+
+var usersQueryStr = `INSERT INTO users (first_name, last_name, image_photo_path) VALUES (?, ?, ?);`;
+var usersParams = ['first_name', 'last_name', 'image_photo_path'];
+
+var roomsQueryStr = `INSERT INTO rooms (name, host_id) VALUES (?, ?);`;
+var roomsParams = ['name', 'host_id'];
+
+var reviewsQueryStr = `INSERT INTO reviews (reviewer_id, room_id, review_date, review_text, review_is_english, review_text_eng, has_host_response, host_reply_text, stars_accuracy, stars_communication, stars_location, stars_checkin, stars_cleanliness, stars_value) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);`;
+var reviewsParams = ['reviewer_id', 'room_id', 'review_date', 'review_text', 'review_is_english', 'review_text_eng', 'has_host_response', 'host_reply_text', 'stars_accuracy', 'stars_communication', 'stars_location', 'stars_checkin', 'stars_cleanliness', 'stars_value'];
+
 ////////Helper Functions///////
+
 const getRandomInt = (max) => {
   return Math.floor(Math.random() * Math.floor(max));
 }
@@ -9,49 +26,42 @@ const getRandomBoolean = ()=> {
   return Math.round((Math.random() * 1) + 0) === 0;
 }
 
-/////////Configurations/////////
-
-var NUM_OF_USERS = 300;
-var NUM_OF_ROOMS = 100;
-var NUM_OF_HOSTS = 80;
-var NUM_OF_MESSAGES = 2000;
-
 ///////Table Generators/////////
 
 const createUsersTableData = () => {
   var dummyData = [];
-  for (var i = 0; i < NUM_OF_USERS - 1; i++) {
+  for (var i = 0; i < NUM_OF_USERS; i++) {
     dummyData.push({ 
-      firstName: faker.name.firstName(), 
-      lastName: faker.name.lastName(), 
+      first_name: faker.name.firstName(), 
+      last_name: faker.name.lastName(), 
       image_photo_path: faker.image.avatar(),
     });
   }
   return dummyData; 
 }
- 
+
 var createRoomsTableData = () => {
   var dummyData = [];
-  for (var i = 0; i < NUM_OF_ROOMS - 1; i++) {
+  for (var i = 0; i < NUM_OF_ROOMS; i++) {
     dummyData.push({
       name: faker.lorem.words(),
-      host_id: getRandomInt(NUM_OF_USERS - 1), 
+      host_id: getRandomInt(NUM_OF_USERS), 
     })
   }
   return dummyData;
 }
 
-var createMessagesTableData = () => {
+var createReviewsTableData = () => {
   var dummyData = [];
-  for (var i = 0; i <   NUM_OF_MESSAGES - 1; i++) {
+  for (var i = 0; i < NUM_OF_MESSAGES; i++) {
     dummyData.push({
-      reviewer_id: getRandomInt(NUM_OF_USERS - 1),
-      room_id: getRandomInt(NUM_OF_ROOMS - 1),
-      review_data: faker.date.past(),
+      reviewer_id: getRandomInt(NUM_OF_USERS),
+      room_id: getRandomInt(NUM_OF_ROOMS),
+      review_date: faker.date.past(),
       review_text: faker.lorem.paragraph(),
-      reviewIsEnglish: getRandomBoolean(),
-      review_text_english: faker.lorem.paragraph(), 
-      hasHostResponse: getRandomBoolean(),
+      review_is_english: getRandomBoolean(),
+      review_text_eng: faker.lorem.paragraph(), 
+      has_host_response: getRandomBoolean(),
       host_reply_text: faker.lorem.paragraph(), 
       stars_accuracy: getRandomInt(5), 
       stars_communication: getRandomInt(5),
@@ -64,9 +74,25 @@ var createMessagesTableData = () => {
   return dummyData;
 }
 
-console.log(createMessagesTableData());
-module.exports = {
-  createUsersTableData,
-  createRoomsTableData,
-  createMessagesTableData,
+var seedTable = (tableGeneratorFunc, queryStr, params) => {
+  var usersDummyData = tableGeneratorFunc();
+
+  usersDummyData.forEach((row) => {
+    var rowParams = []
+    params.forEach((string) => {
+      rowParams.push(row[string]);
+    })
+    database.connection.query(queryStr, rowParams, (err, results) => {
+      if (err) {
+        console.log(err);
+      } else {
+        console.log(results)
+      }
+    })
+  })
 }
+
+seedTable(createUsersTableData, usersQueryStr, usersParams);
+seedTable(createRoomsTableData, roomsQueryStr, roomsParams);
+seedTable(createReviewsTableData, reviewsQueryStr, reviewsParams);
+
