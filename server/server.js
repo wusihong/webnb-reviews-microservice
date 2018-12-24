@@ -1,10 +1,11 @@
 const express = require('express');
 const port = 3000;
-const database = require('../database/database.js')
+const database = require('../database/database.js');
+const path = require('path');
 
 const app = express();
 
-app.use(express.static(__dirname + '../client/dist'));
+app.use('/rooms/:roomId', express.static(path.join(__dirname + '/../client/dist')));
 
 app.get('/rooms/:roomId/reviews', (req, res) => {
 
