@@ -46,8 +46,8 @@ const getReviewsByRoomIdAndQueryTerm = (roomid, queryTerm, callback) => {
 }
 
 const getAverageStarsByRoomId = (roomid, callback) => {
-  var queryStr = `SELECT AVG(stars_accuracy), AVG(stars_communication), 
-    AVG(stars_location), AVG(stars_checkin), AVG(stars_cleanliness), 
+  var queryStr = `SELECT AVG(stars_accuracy), AVG(stars_location), 
+    AVG(stars_communication), AVG(stars_checkin), AVG(stars_cleanliness), 
     AVG(stars_value) FROM reviews WHERE room_id=${roomid}`;
 
   connection.query(queryStr, (err, results) => {
