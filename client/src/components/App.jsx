@@ -18,8 +18,8 @@ class App extends React.Component {
     return (
       <div>
         <Stars stars={this.state.stars} />
-        <Reviews reviews={this.state.visibleReviews} stars={this.state.stars} />
-        <PageBar />
+        <Reviews visibleReviews={this.state.visibleReviews} stars={this.state.stars} />
+        <PageBar reviews={this.state.reviews} />
       </div>
     )
   }
