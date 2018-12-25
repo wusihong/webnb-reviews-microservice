@@ -1,5 +1,7 @@
 import React from 'react';
 import Reviews from './Reviews.jsx';
+import Stars from './Stars.jsx';
+import PageBar from './PageBar.jsx';
 
 class App extends React.Component {
 
@@ -7,13 +9,18 @@ class App extends React.Component {
     super(props);
     this.state = {
       reviews: this.props.reviews,
+      visibleReviews: this.props.reviews.slice(0, 7),
       stars: this.props.stars,
     }
   }
   
   render() {
     return (
-      <Reviews reviews={this.state.reviews} stars={this.state.stars} />
+      <div>
+        <Stars stars={this.state.stars} />
+        <Reviews reviews={this.state.visibleReviews} stars={this.state.stars} />
+        <PageBar />
+      </div>
     )
   }
 }

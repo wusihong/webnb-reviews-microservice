@@ -337,13 +337,13 @@ const reviews = [
 
 const stars = [
     {
-        "AVG(stars_accuracy)": 2.3667,
-        "AVG(stars_communication)": 1.6333,
-        "AVG(stars_location)": 1.9333,
-        "AVG(stars_checkin)": 2.0333,
-        "AVG(stars_cleanliness)": 1.9333,
-        "AVG(stars_value)": 1.7
+        "accuracy": 2.3667,
+        "location": 1.9333,
+        "communication": 1.6333,
+        "check_in": 2.0333,
+        "cleanliness": 1.9333,
+        "value": 1.7
     }
 ];
 
-ReactDOM.render(<App reviews={reviews} stars={stars} />, document.getElementById('reviews-root'));
+ReactDOM.render(<App reviews={reviews} stars={stars[0]} />, document.getElementById('reviews-root'));
