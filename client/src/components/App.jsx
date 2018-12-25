@@ -6,32 +6,20 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      reviews: this.props.reviews,
+      stars: this.props.stars,
     }
-    this.get = this.get.bind(this);
-  }
-  
-  componentDidMount() {
-    this.get();
-  }
-
-  get() {
-    $.ajax({
-      url: 'http://localhost:3000/rooms/2/reviews',
-      method: 'GET',
-      success: (data) => {
-        console.log('success', data)
-      },
-    })
   }
   
   render() {
     return (
-      <Reviews />
+      <Reviews reviews={this.state.reviews} stars={this.state.stars} />
     )
   }
 }
 
 // window.location.href 
+// props type
 
 export default App;
 

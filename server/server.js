@@ -2,14 +2,18 @@ const express = require('express');
 const port = 3000;
 const database = require('../database/database.js');
 const path = require('path');
+const bodyParser = require('body-parser')
 
 const app = express();
+
+app.use(bodyParser.json())
 
 app.use('/rooms/:roomId', express.static(path.join(__dirname + '/../client/dist')));
 
 app.get('/rooms/:roomId/reviews', (req, res) => {
-
-    const roomId = req.params.roomId;
+    
+  const roomId = req.params.roomId;
+  
     database.getReviewsByRoomId(roomId, (err, results) => {
       if(err) {
         console.log(err);

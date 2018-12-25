@@ -2,11 +2,10 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './components/App.jsx';
 
-ReactDOM.render(<App />, document.getElementById('reviews-root'));
-
 const reviews = [
     {
         "first_name": "Frederik",
+        "image_photo_path": "https://s3.amazonaws.com/uifaces/faces/twitter/maximsorokin/128.jpg",
         "room_id": 50,
         "review_date": "2018-11-24T08:00:00.000Z",
         "review_text": "Occaecati ipsam quia. Laudantium voluptas sunt molestiae ad nihil blanditiis dolorem. Nobis ut eveniet deserunt in sunt. Ut ea unde repudiandae autem provident aliquam dicta modi.",
@@ -17,6 +16,7 @@ const reviews = [
     },
     {
         "first_name": "Carmelo",
+        "image_photo_path": "https://s3.amazonaws.com/uifaces/faces/twitter/cyril_gaillard/128.jpg",
         "room_id": 50,
         "review_date": "2018-05-31T07:00:00.000Z",
         "review_text": "Id sit modi. Natus in id quibusdam. Dignissimos veritatis tempora id voluptate. Ratione eos et tempore vel ipsum aliquam aut dignissimos. Rem dolor laudantium deleniti quos maxime asperiores ullam non. Voluptatem porro cumque.",
@@ -27,6 +27,7 @@ const reviews = [
     },
     {
         "first_name": "Elfrieda",
+        "image_photo_path": "https://s3.amazonaws.com/uifaces/faces/twitter/grahamkennery/128.jpg",
         "room_id": 50,
         "review_date": "2018-02-07T08:00:00.000Z",
         "review_text": "Ea tempora quia repellat animi. Voluptatem odio eum est autem. Blanditiis et quos quod sapiente et quas itaque veritatis quibusdam. Fugit asperiores dolores voluptatibus molestias id consequuntur et doloremque. Unde dolorem illo est quas voluptas ut. Nihil perferendis ducimus aut blanditiis quia sint in.",
@@ -37,6 +38,7 @@ const reviews = [
     },
     {
         "first_name": "Iva",
+        "image_photo_path": "https://s3.amazonaws.com/uifaces/faces/twitter/joelhelin/128.jpg",
         "room_id": 50,
         "review_date": "2018-11-06T08:00:00.000Z",
         "review_text": "Et voluptatem quia neque eum consequuntur unde sit necessitatibus. Nisi id dicta consectetur labore temporibus est quisquam. Est optio ducimus atque itaque fugiat. Rerum porro id temporibus earum in dolores est. Iure hic ab illo qui odit numquam quis inventore maiores. Ea sunt est.",
@@ -47,6 +49,7 @@ const reviews = [
     },
     {
         "first_name": "Arnaldo",
+        "image_photo_path": "https://s3.amazonaws.com/uifaces/faces/twitter/vickyshits/128.jpg",
         "room_id": 50,
         "review_date": "2018-11-02T07:00:00.000Z",
         "review_text": "Repellat quidem officiis itaque recusandae neque. Est ratione maxime hic repellendus. Facere et et consectetur.",
@@ -57,6 +60,7 @@ const reviews = [
     },
     {
         "first_name": "Ova",
+        "image_photo_path": "https://s3.amazonaws.com/uifaces/faces/twitter/noxdzine/128.jpg",
         "room_id": 50,
         "review_date": "2018-01-03T08:00:00.000Z",
         "review_text": "Natus consequuntur nostrum sunt cupiditate magni aut non rem. Fuga qui fuga et reprehenderit rem voluptate voluptatem aut. Necessitatibus doloribus tempora enim accusantium. Repudiandae molestiae rerum.",
@@ -67,6 +71,7 @@ const reviews = [
     },
     {
         "first_name": "Alize",
+        "image_photo_path": "https://s3.amazonaws.com/uifaces/faces/twitter/longlivemyword/128.jpg",
         "room_id": 50,
         "review_date": "2018-02-14T08:00:00.000Z",
         "review_text": "Aut quis earum fugiat consequatur neque. Officia ut atque nisi et aperiam soluta. Sed quisquam nisi. Porro earum consequatur totam possimus ullam dolore consequuntur impedit. Reprehenderit error iusto soluta omnis.",
@@ -77,6 +82,7 @@ const reviews = [
     },
     {
         "first_name": "Chaim",
+        "image_photo_path": "https://s3.amazonaws.com/uifaces/faces/twitter/koridhandy/128.jpg",
         "room_id": 50,
         "review_date": "2018-11-15T08:00:00.000Z",
         "review_text": "Et consequatur est consequatur repellat vitae unde dicta quia. Provident corporis quisquam ut culpa voluptatem sapiente officiis facilis. Sed ipsa accusamus quia. Deleniti ea quo consequatur eaque aliquam officiis aut quia.",
@@ -87,6 +93,7 @@ const reviews = [
     },
     {
         "first_name": "Hank",
+        "image_photo_path": "https://s3.amazonaws.com/uifaces/faces/twitter/linkibol/128.jpg",
         "room_id": 50,
         "review_date": "2018-11-20T08:00:00.000Z",
         "review_text": "Illo eligendi iure. Non ipsa suscipit reiciendis. Velit harum quasi laboriosam officia in iste vero. Architecto autem quia ipsa delectus quaerat autem eius sed modi.",
@@ -97,6 +104,7 @@ const reviews = [
     },
     {
         "first_name": "Micah",
+        "image_photo_path": "https://s3.amazonaws.com/uifaces/faces/twitter/lebinoclard/128.jpg",
         "room_id": 50,
         "review_date": "2018-02-10T08:00:00.000Z",
         "review_text": "Accusamus laborum laboriosam incidunt sunt illum quia tempora odio eos. Nulla nostrum aut dolores nesciunt soluta neque consequatur dolor. In consectetur hic fugit sed molestiae illum dolorum voluptas. Ipsam adipisci laborum esse. Sequi qui fuga possimus. Veniam magnam vel harum et dolores.",
@@ -107,6 +115,7 @@ const reviews = [
     },
     {
         "first_name": "Damion",
+        "image_photo_path": "https://s3.amazonaws.com/uifaces/faces/twitter/hsinyo23/128.jpg",
         "room_id": 50,
         "review_date": "2018-04-13T07:00:00.000Z",
         "review_text": "Accusamus vel earum dicta quia nisi accusantium. Voluptates voluptatem ut ullam dolores rerum vero. Voluptates mollitia ipsum omnis et. Eius atque doloribus suscipit unde ut ducimus.",
@@ -117,6 +126,7 @@ const reviews = [
     },
     {
         "first_name": "Jessy",
+        "image_photo_path": "https://s3.amazonaws.com/uifaces/faces/twitter/harry_sistalam/128.jpg",
         "room_id": 50,
         "review_date": "2018-03-16T07:00:00.000Z",
         "review_text": "Reiciendis rerum corrupti quibusdam. Sint officiis ullam qui voluptas qui. Non dolorem dolorum aut debitis ipsum consequatur non impedit. Distinctio incidunt ut. Reprehenderit et recusandae nesciunt incidunt et. Corrupti dolorem repellat.",
@@ -127,6 +137,7 @@ const reviews = [
     },
     {
         "first_name": "Terrance",
+        "image_photo_path": "https://s3.amazonaws.com/uifaces/faces/twitter/mrebay007/128.jpg",
         "room_id": 50,
         "review_date": "2018-01-23T08:00:00.000Z",
         "review_text": "Vel fugit enim provident eius autem voluptatem reiciendis. Libero sunt sunt necessitatibus vel natus tenetur. Natus et fugit et dolorum et. Accusantium sapiente assumenda quas laborum. Pariatur asperiores asperiores earum et. Assumenda consequuntur sapiente.",
@@ -137,6 +148,7 @@ const reviews = [
     },
     {
         "first_name": "Jairo",
+        "image_photo_path": "https://s3.amazonaws.com/uifaces/faces/twitter/andrewarrow/128.jpg",
         "room_id": 50,
         "review_date": "2018-09-03T07:00:00.000Z",
         "review_text": "Impedit eos eum officia perspiciatis voluptatem voluptatem deserunt hic alias. Animi sunt quis explicabo quia repudiandae optio occaecati. Praesentium velit sint ut voluptatibus voluptas autem eligendi consequuntur temporibus.",
@@ -147,6 +159,7 @@ const reviews = [
     },
     {
         "first_name": "Fiona",
+        "image_photo_path": "https://s3.amazonaws.com/uifaces/faces/twitter/sulaqo/128.jpg",
         "room_id": 50,
         "review_date": "2018-08-10T07:00:00.000Z",
         "review_text": "Iure molestiae pariatur praesentium blanditiis. In cupiditate assumenda eaque. Ut ducimus excepturi labore natus eaque. Repellat error voluptatem animi. Totam delectus sit aliquid et.",
@@ -157,6 +170,7 @@ const reviews = [
     },
     {
         "first_name": "Irma",
+        "image_photo_path": "https://s3.amazonaws.com/uifaces/faces/twitter/shesgared/128.jpg",
         "room_id": 50,
         "review_date": "2018-04-21T07:00:00.000Z",
         "review_text": "Porro sunt pariatur quo id ut esse quo ut incidunt. Placeat quia magni minima numquam quis quo cum impedit aut. Optio magnam quaerat vitae est et nobis. Eveniet deleniti sed nulla. Quo laboriosam labore assumenda nihil ipsum illum alias velit.",
@@ -167,6 +181,7 @@ const reviews = [
     },
     {
         "first_name": "Cheyanne",
+        "image_photo_path": "https://s3.amazonaws.com/uifaces/faces/twitter/allfordesign/128.jpg",
         "room_id": 50,
         "review_date": "2018-05-05T07:00:00.000Z",
         "review_text": "Doloremque corporis ad dicta blanditiis aut eum dolores rerum quo. Doloremque reprehenderit deleniti aperiam. Rerum placeat qui corrupti qui doloremque vero omnis aut.",
@@ -177,6 +192,7 @@ const reviews = [
     },
     {
         "first_name": "Ivah",
+        "image_photo_path": "https://s3.amazonaws.com/uifaces/faces/twitter/designervzm/128.jpg",
         "room_id": 50,
         "review_date": "2018-09-11T07:00:00.000Z",
         "review_text": "Fugit dolorem quas vitae ea nihil. Excepturi necessitatibus qui. Iure dolorem quia aut sed possimus placeat.",
@@ -187,6 +203,7 @@ const reviews = [
     },
     {
         "first_name": "Audie",
+        "image_photo_path": "https://s3.amazonaws.com/uifaces/faces/twitter/adityasutomo/128.jpg",
         "room_id": 50,
         "review_date": "2017-12-30T08:00:00.000Z",
         "review_text": "At occaecati laudantium quia dignissimos perspiciatis cupiditate deleniti. Ipsum consequatur qui sint rem et. Quia aut non aut et labore dignissimos amet soluta molestiae. Magni qui aut eaque corrupti deserunt.",
@@ -197,6 +214,7 @@ const reviews = [
     },
     {
         "first_name": "Julius",
+        "image_photo_path": "https://s3.amazonaws.com/uifaces/faces/twitter/naitanamoreno/128.jpg",
         "room_id": 50,
         "review_date": "2018-12-03T08:00:00.000Z",
         "review_text": "Dignissimos accusamus voluptates velit molestiae laboriosam. Dolorem sit voluptatibus nostrum quia deleniti sint ipsa. Magni aut accusamus distinctio atque dignissimos eveniet aspernatur. Qui doloremque optio. Accusantium quod enim iusto.",
@@ -207,6 +225,7 @@ const reviews = [
     },
     {
         "first_name": "Kory",
+        "image_photo_path": "https://s3.amazonaws.com/uifaces/faces/twitter/ahmadajmi/128.jpg",
         "room_id": 50,
         "review_date": "2018-07-21T07:00:00.000Z",
         "review_text": "A id ut neque dicta ab aut aut. Ut ut repellendus provident. Labore ipsa ut dolores cumque. Tempora vero eum tenetur et quia cum est nostrum.",
@@ -217,6 +236,7 @@ const reviews = [
     },
     {
         "first_name": "Friedrich",
+        "image_photo_path": "https://s3.amazonaws.com/uifaces/faces/twitter/jydesign/128.jpg",
         "room_id": 50,
         "review_date": "2018-05-17T07:00:00.000Z",
         "review_text": "Earum atque adipisci doloribus ut. Ut eum quo debitis enim id aut. Quos ipsum possimus recusandae ex nihil. Optio ut voluptatem omnis molestiae ea sint. Earum laboriosam nihil temporibus quae ut libero provident beatae reiciendis. Quis quibusdam hic.",
@@ -227,6 +247,7 @@ const reviews = [
     },
     {
         "first_name": "Guy",
+        "image_photo_path": "https://s3.amazonaws.com/uifaces/faces/twitter/charlesrpratt/128.jpg",
         "room_id": 50,
         "review_date": "2018-10-29T07:00:00.000Z",
         "review_text": "Voluptatem consequatur aut nam laborum eum eos velit. Harum porro quis soluta molestiae odio facere ea praesentium vero. Ut dignissimos in perspiciatis delectus. Veritatis at pariatur magnam vel ut.",
@@ -237,6 +258,7 @@ const reviews = [
     },
     {
         "first_name": "Isac",
+        "image_photo_path": "https://s3.amazonaws.com/uifaces/faces/twitter/agromov/128.jpg",
         "room_id": 50,
         "review_date": "2018-12-08T08:00:00.000Z",
         "review_text": "Voluptates ut similique est tempora consequuntur. Eligendi sed ut ut tempore. Qui laboriosam reiciendis rem eum consequuntur corporis. Aspernatur modi occaecati enim saepe dolores incidunt enim quia qui. Rerum accusamus molestiae eos.",
@@ -247,6 +269,7 @@ const reviews = [
     },
     {
         "first_name": "Mekhi",
+        "image_photo_path": "https://s3.amazonaws.com/uifaces/faces/twitter/nateschulte/128.jpg",
         "room_id": 50,
         "review_date": "2018-05-01T07:00:00.000Z",
         "review_text": "Ut laudantium est consequatur. Pariatur quod molestias vel ipsum asperiores est veniam sunt. Sit iusto voluptas ipsam consequatur quia voluptas rerum. Quasi omnis consequatur sequi dolor soluta ea. Ex illo eius natus non exercitationem ea facere molestias commodi.",
@@ -257,6 +280,7 @@ const reviews = [
     },
     {
         "first_name": "Jedediah",
+        "image_photo_path": "https://s3.amazonaws.com/uifaces/faces/twitter/kaspernordkvist/128.jpg",
         "room_id": 50,
         "review_date": "2018-12-10T08:00:00.000Z",
         "review_text": "Qui quas ut voluptates. Accusantium aspernatur voluptates. Error sint non velit porro est libero. Odit sed non nemo.",
@@ -267,6 +291,7 @@ const reviews = [
     },
     {
         "first_name": "Rusty",
+        "image_photo_path": "https://s3.amazonaws.com/uifaces/faces/twitter/maximseshuk/128.jpg",
         "room_id": 50,
         "review_date": "2018-01-14T08:00:00.000Z",
         "review_text": "Sunt quo facilis dignissimos dolorem sit cupiditate saepe unde qui. Aut unde eveniet. Cum facere esse sit explicabo est et. Ut similique perferendis impedit autem.",
@@ -277,6 +302,7 @@ const reviews = [
     },
     {
         "first_name": "Garrick",
+        "image_photo_path": "https://s3.amazonaws.com/uifaces/faces/twitter/sergeysafonov/128.jpg",
         "room_id": 50,
         "review_date": "2017-12-28T08:00:00.000Z",
         "review_text": "Est corrupti recusandae officia. Voluptatum dolorem eos. Et natus quia ipsum ut labore et laboriosam non. Fugiat magnam eveniet rerum soluta voluptates. Ullam nihil aliquam sunt excepturi animi natus.",
@@ -287,6 +313,7 @@ const reviews = [
     },
     {
         "first_name": "Ray",
+        "image_photo_path": "https://s3.amazonaws.com/uifaces/faces/twitter/koridhandy/128.jpg",
         "room_id": 50,
         "review_date": "2018-07-05T07:00:00.000Z",
         "review_text": "Ea et est velit vel. Et adipisci molestiae libero. Voluptatem aut et provident. Consequatur inventore earum corrupti fugit nostrum. Qui vel et aliquam aut ut corporis ut. Omnis aliquid eaque est aut voluptas corporis.",
@@ -297,6 +324,7 @@ const reviews = [
     },
     {
         "first_name": "Kira",
+        "image_photo_path": "https://s3.amazonaws.com/uifaces/faces/twitter/carlosjgsousa/128.jpg",
         "room_id": 50,
         "review_date": "2018-03-04T08:00:00.000Z",
         "review_text": "Totam numquam eum error. Ducimus autem qui est error. Et fugit numquam ut at asperiores asperiores ex aut. Consequuntur aut et quia sunt quos. Animi dolorum non occaecati nisi. Aliquid nisi consequatur rerum impedit praesentium odit totam facilis.",
@@ -318,3 +346,4 @@ const stars = [
     }
 ];
 
+ReactDOM.render(<App reviews={reviews} stars={stars} />, document.getElementById('reviews-root'));

@@ -5,16 +5,13 @@ const Reviews = (props) => {
 
   return (
     <div>
-      <Review />
-      <Review />
-      <Review />
-      <Review />
-      <Review />
+      {props.reviews.map((review, index) => {
+        return <Review key={index} review={review}/> 
+      })
+
+      }
     </div>
   ) 
 }
-
-
-// props type
 
 export default Reviews;
