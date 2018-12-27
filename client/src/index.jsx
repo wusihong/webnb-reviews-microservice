@@ -333,7 +333,7 @@ const reviews = [
         "has_host_response": 1,
         "host_reply_text": "Ullam cupiditate nesciunt quam ducimus nihil incidunt et natus. Molestiae quibusdam eum mollitia quasi iste iste eligendi voluptates. Vitae quia saepe accusantium praesentium nisi excepturi aspernatur vel at."
     }
-];
+]
 
 const stars = [
     {
@@ -347,3 +347,4 @@ const stars = [
 ];
 
 ReactDOM.render(<App reviews={reviews} stars={stars[0]} />, document.getElementById('reviews-root'));
+
