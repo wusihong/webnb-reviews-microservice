@@ -1,7 +1,3 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import App from './components/App.jsx';
-
 const reviews = [
     {
         "first_name": "Frederik",
@@ -69,6 +65,50 @@ const reviews = [
         "has_host_response": 1,
         "host_reply_text": "Itaque sunt eos voluptate et. Aliquid quo reprehenderit et exercitationem et molestias sequi est accusamus. Eos ad animi in. Cumque necessitatibus est ratione quia et a ipsum. Voluptatem autem recusandae maxime numquam laboriosam non. Et ad dolores et alias culpa dolores et recusandae."
     },
+    {
+        "first_name": "Elfrieda",
+        "image_photo_path": "https://s3.amazonaws.com/uifaces/faces/twitter/grahamkennery/128.jpg",
+        "room_id": 50,
+        "review_date": "2018-02-07T08:00:00.000Z",
+        "review_text": "Ea tempora quia repellat animi. Voluptatem odio eum est autem. Blanditiis et quos quod sapiente et quas itaque veritatis quibusdam. Fugit asperiores dolores voluptatibus molestias id consequuntur et doloremque. Unde dolorem illo est quas voluptas ut. Nihil perferendis ducimus aut blanditiis quia sint in.",
+        "review_is_english": 1,
+        "review_text_eng": "Ab debitis totam doloremque expedita molestiae ea voluptatum sit neque. Ullam blanditiis illum error repellat deleniti. Porro et dolore eum quo omnis. Quia est quia minima alias quam dolorum. Quo deserunt autem qui quia eligendi. Tenetur minima doloribus.",
+        "has_host_response": 1,
+        "host_reply_text": "Sit laborum ut non nihil sed. Assumenda vero sed. Tenetur aut rem error quaerat nihil culpa at. Sint perspiciatis sunt sapiente dolorem consectetur veritatis dolorem enim. Consectetur molestiae amet veniam qui et quam tempore soluta sint."
+    },
+    {
+        "first_name": "Iva",
+        "image_photo_path": "https://s3.amazonaws.com/uifaces/faces/twitter/joelhelin/128.jpg",
+        "room_id": 50,
+        "review_date": "2018-11-06T08:00:00.000Z",
+        "review_text": "Et voluptatem quia neque eum consequuntur unde sit necessitatibus. Nisi id dicta consectetur labore temporibus est quisquam. Est optio ducimus atque itaque fugiat. Rerum porro id temporibus earum in dolores est. Iure hic ab illo qui odit numquam quis inventore maiores. Ea sunt est.",
+        "review_is_english": 0,
+        "review_text_eng": "In velit voluptatem exercitationem et rem. Ipsa est sed sint totam molestiae facere voluptatum dolor nam. Enim rem beatae. Reiciendis est fugiat laudantium voluptatem optio placeat sed. Voluptatem et doloremque aut possimus. Consequatur dicta dolorem qui.",
+        "has_host_response": 0,
+        "host_reply_text": "Earum ut aut nam temporibus libero aut dolor. Fugiat quia impedit sequi. Natus voluptas ut non eum veniam quas et explicabo debitis. Minima similique commodi velit iste. Beatae veritatis magni earum sed omnis deserunt et ullam."
+    },
+    {
+        "first_name": "Arnaldo",
+        "image_photo_path": "https://s3.amazonaws.com/uifaces/faces/twitter/vickyshits/128.jpg",
+        "room_id": 50,
+        "review_date": "2018-11-02T07:00:00.000Z",
+        "review_text": "Repellat quidem officiis itaque recusandae neque. Est ratione maxime hic repellendus. Facere et et consectetur.",
+        "review_is_english": 0,
+        "review_text_eng": "Assumenda quae consequuntur quisquam et magni est deserunt. Necessitatibus adipisci rerum est magnam quo et hic eius. Dolores quisquam dolor voluptatum sint et. Voluptatum voluptates et minus. Et repudiandae qui unde quia porro.",
+        "has_host_response": 1,
+        "host_reply_text": "Enim eum nesciunt at aut. Ipsam cumque quo dolorem saepe quisquam nobis reprehenderit adipisci officiis. In expedita facilis et nisi quisquam fuga quis. Beatae est debitis qui voluptatibus consequuntur."
+    },
+    {
+        "first_name": "Ova",
+        "image_photo_path": "https://s3.amazonaws.com/uifaces/faces/twitter/noxdzine/128.jpg",
+        "room_id": 50,
+        "review_date": "2018-01-03T08:00:00.000Z",
+        "review_text": "Natus consequuntur nostrum sunt cupiditate magni aut non rem. Fuga qui fuga et reprehenderit rem voluptate voluptatem aut. Necessitatibus doloribus tempora enim accusantium. Repudiandae molestiae rerum.",
+        "review_is_english": 0,
+        "review_text_eng": "Similique delectus quia consequuntur. At ipsa enim quis magnam quis placeat. Laudantium et quaerat ipsa nihil. Quisquam facere soluta et at neque ad. Sit voluptas qui nam ipsum mollitia. Ullam provident voluptatem.",
+        "has_host_response": 1,
+        "host_reply_text": "Itaque sunt eos voluptate et. Aliquid quo reprehenderit et exercitationem et molestias sequi est accusamus. Eos ad animi in. Cumque necessitatibus est ratione quia et a ipsum. Voluptatem autem recusandae maxime numquam laboriosam non. Et ad dolores et alias culpa dolores et recusandae."
+    },
 ]
 
 const stars = [
@@ -82,5 +122,4 @@ const stars = [
     }
 ];
 
-ReactDOM.render(<App reviews={reviews} stars={stars[0]} />, document.getElementById('reviews-root'));
-
+export { reviews, stars };
