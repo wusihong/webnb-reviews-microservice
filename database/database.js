@@ -9,7 +9,7 @@ var connection = mysql.createConnection({
 connection.connect();
 
 const getReviewsByRoomId = (roomid, callback) => {
-  var queryStr = `SELECT users.first_name, reviews.room_id, reviews.review_date, 
+  var queryStr = `SELECT users.first_name, users.image_photo_path, reviews.room_id, reviews.review_date, 
   reviews.review_text, reviews.review_is_english, reviews.review_text_eng, 
   reviews.has_host_response, reviews.host_reply_text 
   FROM reviews INNER JOIN users ON reviews.reviewer_id = users.id
@@ -30,7 +30,7 @@ const getReviewsByRoomId = (roomid, callback) => {
 }
 
 const getReviewsByRoomIdAndQueryTerm = (roomid, queryTerm, callback) => {
-  var queryStr = `SELECT users.first_name, reviews.room_id, reviews.review_date, 
+  var queryStr = `SELECT users.first_name, users.image_photo_path, reviews.room_id, reviews.review_date, 
   reviews.review_text, reviews.review_is_english, reviews.review_text_eng, reviews.has_host_response,
   reviews.host_reply_text 
   FROM reviews INNER JOIN users ON reviews.reviewer_id = users.id
@@ -46,9 +46,9 @@ const getReviewsByRoomIdAndQueryTerm = (roomid, queryTerm, callback) => {
 }
 
 const getAverageStarsByRoomId = (roomid, callback) => {
-  var queryStr = `SELECT AVG(stars_accuracy), AVG(stars_communication), 
-    AVG(stars_location), AVG(stars_checkin), AVG(stars_cleanliness), 
-    AVG(stars_value) FROM reviews WHERE room_id=${roomid}`;
+  var queryStr = `SELECT AVG(stars_accuracy) "accuracy", AVG(stars_location) "location", 
+    AVG(stars_communication) "communication", AVG(stars_checkin) "check_in", 
+    AVG(stars_cleanliness) "cleanliness", AVG(stars_value) "value" FROM reviews WHERE room_id=${roomid}`;
 
   connection.query(queryStr, (err, results) => {
     if(err) {
