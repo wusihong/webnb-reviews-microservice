@@ -3,7 +3,7 @@ import { shallow} from 'enzyme';
 import PageBar from '../client/src/components/PageBar.jsx';
 import { reviews } from './testDummyData.js';
 
-describe('Reviews', () => {
+describe('PageBar', () => {
     it('should be defined', () => {
       expect(PageBar).toBeDefined();
     });

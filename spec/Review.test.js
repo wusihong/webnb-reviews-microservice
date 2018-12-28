@@ -3,7 +3,7 @@ import { shallow} from 'enzyme';
 import Review from '../client/src/components/Review.jsx';
 import { reviews, stars } from './testDummyData.js';
 
-describe('Reviews', () => {
+describe('Review', () => {
     it('should be defined', () => {
       expect(Review).toBeDefined();
     });
