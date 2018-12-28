@@ -6,7 +6,7 @@ const Reviews = (props) => {
   return (
     <div>
       {props.visibleReviews.map((review, index) => {
-        return <Review key={index} review={review}/>
+        return <Review key={index} hostDetails={props.hostDetails} review={review}/>
       })
       }
     </div>
