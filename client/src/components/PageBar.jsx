@@ -3,25 +3,62 @@ import PageBarNumberButton from './PageBarNumberButton.jsx';
 
 const PageBar = (props) => {
 
-  var pages = Math.ceil(props.visibleReviews.length / 7)
-  var pageButtons = [];
+  const pages = Math.ceil(props.visibleReviews.length / 7)
+  const pageButtonsArray = [];
   {for(var i = 0; i < pages; i++) {
-    pageButtons.push(i + 1)
+    pageButtonsArray.push(i + 1)
   }}
 
-  return (
-
+  const backButton = <button onClick={() => {props.toggleCurrentPageReviews(props.beginningIndexForCurrentPageReviews - 7)}} >previous page</button>
+  const forwardButton = <button onClick={() => {props.toggleCurrentPageReviews(props.beginningIndexForCurrentPageReviews + 7)}} >next page</button>
+  const pageButtons = (
     <div>
-      <button onClick={() => {props.toggleCurrentPageReviews(props.beginningIndexForCurrentPageReviews - 7)}} >previous page</button>
-      {pageButtons.map((pageNum, index) => {
+      {pageButtonsArray.map((pageNum, index) => {
         const beginningIndexForReviews = index * 7;
         return <PageBarNumberButton key={index} pageNum={pageNum} beginningIndexForReviews={beginningIndexForReviews} toggleCurrentPageReviews={props.toggleCurrentPageReviews} />
       })
       }
-      <button onClick={() => {props.toggleCurrentPageReviews(props.beginningIndexForCurrentPageReviews + 7)}} >next page</button>
     </div>
   )
-  
+
+  if(props.beginningIndexForCurrentPageReviews + 7 > props.visibleReviews.length) {
+    return (
+      <div>
+        {backButton}
+        {pageButtonsArray.map((pageNum, index) => {
+          const beginningIndexForReviews = index * 7;
+          return <PageBarNumberButton key={index} pageNum={pageNum} beginningIndexForReviews={beginningIndexForReviews} toggleCurrentPageReviews={props.toggleCurrentPageReviews} />
+        })
+        }
+      </div>
+    )
+  }
+
+  if(props.beginningIndexForCurrentPageReviews === 0) {
+    return (
+      <div>
+        {pageButtonsArray.map((pageNum, index) => {
+          const beginningIndexForReviews = index * 7;
+          return <PageBarNumberButton key={index} pageNum={pageNum} beginningIndexForReviews={beginningIndexForReviews} toggleCurrentPageReviews={props.toggleCurrentPageReviews} />
+        })
+        }
+        {forwardButton}
+      </div>
+    )
+  }
+
+  return (
+    <div>
+      {backButton}
+      {pageButtonsArray.map((pageNum, index) => {
+          const beginningIndexForReviews = index * 7;
+          return <PageBarNumberButton key={index} pageNum={pageNum} beginningIndexForReviews={beginningIndexForReviews} toggleCurrentPageReviews={props.toggleCurrentPageReviews} />
+        })
+        }
+      {forwardButton}
+    </div>
+  )
+    
 }
 
 export default PageBar;
@@ -69,6 +106,3 @@ export default PageBar;
 
 // page 22 
   // previousPage, 1, ..., 20 21, 22
-
-
-// max seven number buttons

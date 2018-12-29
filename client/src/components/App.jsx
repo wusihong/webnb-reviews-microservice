@@ -21,7 +21,7 @@ class App extends React.Component {
       stars: this.props.stars,
     }
     this.getFilteredReviews = this.getFilteredReviews.bind(this);
-    this.toggleReviewsFilter = this.toggleReviewsFilter.bind(this);
+    this.backToAllReviews = this.backToAllReviews.bind(this);
     this.toggleCurrentPageReviews = this.toggleCurrentPageReviews.bind(this);
   }
 
@@ -41,14 +41,13 @@ class App extends React.Component {
     })
   }
 
-  toggleReviewsFilter() {
+  backToAllReviews() {
     this.setState({
       isFiltered: false,
       visibleReviews: this.state.allReviews,
       beginningIndexForCurrentPageReviews: 0,
       currentPageReview: this.state.allReviews.slice(0, 7)
     })
-    // also need to clear search input field
   }
 
   toggleCurrentPageReviews(newBeginningIndex) {
@@ -65,35 +64,35 @@ class App extends React.Component {
 
   render() {
 
-    if(!this.state.isFiltered) {
-      return (
-        <div>
-          <BlendedStars stars={this.state.stars} allReviews={this.state.allReviews}/>
-          <SearchReviews getFilteredReviews={this.getFilteredReviews} />
-          <Stars stars={this.state.stars} />
-          <Reviews hostInformation={this.state.hostInformation} currentPageReviews={this.state.currentPageReviews} stars={this.state.stars} />
-          <PageBar beginningIndexForCurrentPageReviews={this.state.beginningIndexForCurrentPageReviews} toggleCurrentPageReviews={this.toggleCurrentPageReviews} visibleReviews={this.state.visibleReviews} />
-        </div>
-      ) 
-    }
+    const allReviewsView = (
+      <div>
+        <BlendedStars stars={this.state.stars} allReviews={this.state.allReviews}/>
+        <SearchReviews getFilteredReviews={this.getFilteredReviews} />
+        <Stars stars={this.state.stars} />
+        <Reviews hostInformation={this.state.hostInformation} currentPageReviews={this.state.currentPageReviews} stars={this.state.stars} />
+        <PageBar beginningIndexForCurrentPageReviews={this.state.beginningIndexForCurrentPageReviews} toggleCurrentPageReviews={this.toggleCurrentPageReviews} visibleReviews={this.state.visibleReviews} />
+      </div>
+    )
 
-    if(this.state.isFiltered) {
-      return (
-        <div>
-          <BlendedStars stars={this.state.stars} allReviews={this.state.allReviews}/>
-          <FilterMessage toggleReviewsFilter={this.toggleReviewsFilter} currentSearchTerm={this.state.currentSearchTerm} visibleReviews={this.state.visibleReviews} />
-          <SearchReviews getFilteredReviews={this.getFilteredReviews} />
-          <Reviews hostInformation={this.state.hostInformation} currentPageReviews={this.state.currentPageReviews} stars={this.state.stars} />
-          <PageBar beginningIndexForCurrentPageReviews={this.state.beginningIndexForCurrentPageReviews} toggleCurrentPageReviews={this.toggleCurrentPageReviews} visibleReviews={this.state.visibleReviews} />
-        </div>
-      ) 
-    }
+    const filteredView = (
+      <div>
+        <BlendedStars stars={this.state.stars} allReviews={this.state.allReviews}/>
+        <FilterMessage backToAllReviews={this.backToAllReviews} currentSearchTerm={this.state.currentSearchTerm} visibleReviews={this.state.visibleReviews} />
+        <SearchReviews getFilteredReviews={this.getFilteredReviews} />
+        <Reviews hostInformation={this.state.hostInformation} currentPageReviews={this.state.currentPageReviews} stars={this.state.stars} />
+        <PageBar beginningIndexForCurrentPageReviews={this.state.beginningIndexForCurrentPageReviews} toggleCurrentPageReviews={this.toggleCurrentPageReviews} visibleReviews={this.state.visibleReviews} />
+      </div>
+    )
 
+    return (
+      <div>
+        {this.state.isFiltered ? filteredView : allReviewsView}
+      </div>
+    )
   }
+
 }
 
-
-// XX search review functionality 
 // replace dummy data with requests to back-end
   // window.location.href 
   // props type
