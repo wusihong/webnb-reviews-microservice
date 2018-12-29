@@ -9,7 +9,7 @@ var connection = mysql.createConnection({
 connection.connect();
 
 const getHostDetailsByRoomId = (roomid, callback) => {
-  var queryStr = `SELECT DISTINCT a.first_name, a.image_photo_path
+  var queryStr = `SELECT DISTINCT a.first_name, a.image_photo_path, c.room_id
   FROM users a, rooms b, reviews c 
   WHERE c.room_id=${roomid} AND c.room_id=b.id AND a.id=b.host_id`;
 

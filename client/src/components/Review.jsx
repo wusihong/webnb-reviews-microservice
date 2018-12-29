@@ -18,7 +18,7 @@ const Review = (props) => {
     return (
       <div>
       {basicRender}
-      <HostResponse hostDetails={props.hostDetails} review={props.review} />
+      <HostResponse hostInformation={props.hostInformation} review={props.review} />
       </div>
     )
   }

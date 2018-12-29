@@ -346,12 +346,13 @@ const stars = [
     }
 ];
 
-const hostDetails = [
+const hostInformation = [
     {
         "first_name": "Preston",
-        "image_photo_path": "https://s3.amazonaws.com/uifaces/faces/twitter/dactrtr/128.jpg"
+        "image_photo_path": "https://s3.amazonaws.com/uifaces/faces/twitter/dactrtr/128.jpg",
+        "room_id": 50
     }
 ];
 
-ReactDOM.render(<App reviews={reviews} stars={stars[0]} hostDetails={hostDetails[0]} />, document.getElementById('reviews-root'));
+ReactDOM.render(<App reviews={reviews} stars={stars[0]} hostInformation={hostInformation[0]} />, document.getElementById('reviews-root'));
 

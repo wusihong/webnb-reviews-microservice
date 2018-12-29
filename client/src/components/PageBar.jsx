@@ -3,7 +3,7 @@ import PageBarNumberButton from './PageBarNumberButton.jsx';
 
 const PageBar = (props) => {
 
-  var pages = Math.ceil(props.reviews.length / 7)
+  var pages = Math.ceil(props.visibleReviews.length / 7)
   var pageButtons = [];
   {for(var i = 0; i < pages; i++) {
     pageButtons.push(i + 1)
@@ -12,13 +12,13 @@ const PageBar = (props) => {
   return (
 
     <div>
-      <button onClick={() => {props.toggleVisibleReviews(props.beginningIndexForVisibleReviews - 7)}} >previous page</button>
+      <button onClick={() => {props.toggleCurrentPageReviews(props.beginningIndexForCurrentPageReviews - 7)}} >previous page</button>
       {pageButtons.map((pageNum, index) => {
         const beginningIndexForReviews = index * 7;
-        return <PageBarNumberButton key={index} pageNum={pageNum} beginningIndexForReviews={beginningIndexForReviews} toggleVisibleReviews={props.toggleVisibleReviews} />
+        return <PageBarNumberButton key={index} pageNum={pageNum} beginningIndexForReviews={beginningIndexForReviews} toggleCurrentPageReviews={props.toggleCurrentPageReviews} />
       })
       }
-      <button onClick={() => {props.toggleVisibleReviews(props.beginningIndexForVisibleReviews + 7)}} >next page</button>
+      <button onClick={() => {props.toggleCurrentPageReviews(props.beginningIndexForCurrentPageReviews + 7)}} >next page</button>
     </div>
   )
   
