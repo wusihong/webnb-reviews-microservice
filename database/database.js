@@ -8,6 +8,20 @@ var connection = mysql.createConnection({
 
 connection.connect();
 
+const getHostDetailsByRoomId = (roomid, callback) => {
+  var queryStr = `SELECT DISTINCT a.first_name, a.image_photo_path, c.room_id
+  FROM users a, rooms b, reviews c 
+  WHERE c.room_id=${roomid} AND c.room_id=b.id AND a.id=b.host_id`;
+
+  connection.query(queryStr, (err, results) => {
+    if(err) {
+      callback(err)
+    } else {
+      callback(null, results);
+    }
+  })
+}
+
 const getReviewsByRoomId = (roomid, callback) => {
   var queryStr = `SELECT users.first_name, users.image_photo_path, reviews.room_id, reviews.review_date, 
   reviews.review_text, reviews.review_is_english, reviews.review_text_eng, 
@@ -63,6 +77,7 @@ const getAverageStarsByRoomId = (roomid, callback) => {
 
 module.exports = {
   connection,
+  getHostDetailsByRoomId,
   getReviewsByRoomId,
   getReviewsByRoomIdAndQueryTerm,
   getAverageStarsByRoomId,
