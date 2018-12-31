@@ -21,6 +21,7 @@
     "path": "^0.12.7",
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
+    "react-styled-flexbox": "^2.0.0",
     "styled-components": "^4.1.3"
   },
   "devDependencies": {

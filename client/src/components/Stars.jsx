@@ -1,13 +1,13 @@
 import React from 'react';
+import { FlexContainer_Row_SpaceBetween } from './Styles.js'; 
 
 const Stars = (props) => {
 
   return ( 
-    <div>
-      <div><span><b>Accuracy</b>{props.stars.accuracy}</span><span><b>Location</b>{props.stars.location}</span></div>
-      <div><span><b>Communication</b>{props.stars.communication}</span><span><b>Check-in</b>{props.stars.check_in}</span></div>
-      <div><span><b>Cleanliness</b>{props.stars.cleanliness}</span><span><b>Value</b>{props.stars.value}</span></div>
-    </div>
+    <FlexContainer_Row_SpaceBetween>
+      <div><span><b>Accuracy</b>{props.stars.accuracy}</span><br></br><span><b>Communication</b>{props.stars.communication}</span><br></br><span><b>Cleanliness</b>{props.stars.cleanliness}</span></div>
+      <div><span><b>Location</b>{props.stars.location}</span><br></br><span><b>Check-in</b>{props.stars.check_in}</span><br></br><span><b>Value</b>{props.stars.value}</span></div>
+    </FlexContainer_Row_SpaceBetween>
   )
 }
 

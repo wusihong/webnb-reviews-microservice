@@ -5,6 +5,7 @@ import Stars from './Stars.jsx';
 import Reviews from './Reviews.jsx';
 import PageBar from './PageBar.jsx';
 import FilterMessage from './FilterMessage.jsx';
+import { AppContainer, FlexContainer_Row_SpaceBetween } from './Styles.js'; 
 
 class App extends React.Component {
 
@@ -65,23 +66,25 @@ class App extends React.Component {
   render() {
 
     const allReviewsView = (
-      <div>
-        <BlendedStars stars={this.state.stars} allReviews={this.state.allReviews}/>
-        <SearchReviews getFilteredReviews={this.getFilteredReviews} />
+      <AppContainer>
+        <FlexContainer_Row_SpaceBetween>
+          <BlendedStars stars={this.state.stars} allReviews={this.state.allReviews}/>
+          <SearchReviews getFilteredReviews={this.getFilteredReviews} />
+        </FlexContainer_Row_SpaceBetween>
         <Stars stars={this.state.stars} />
         <Reviews hostInformation={this.state.hostInformation} currentPageReviews={this.state.currentPageReviews} stars={this.state.stars} />
         <PageBar beginningIndexForCurrentPageReviews={this.state.beginningIndexForCurrentPageReviews} toggleCurrentPageReviews={this.toggleCurrentPageReviews} visibleReviews={this.state.visibleReviews} />
-      </div>
+      </AppContainer>
     )
 
     const filteredView = (
-      <div>
+      <AppContainer>
         <BlendedStars stars={this.state.stars} allReviews={this.state.allReviews}/>
         <FilterMessage backToAllReviews={this.backToAllReviews} currentSearchTerm={this.state.currentSearchTerm} visibleReviews={this.state.visibleReviews} />
         <SearchReviews getFilteredReviews={this.getFilteredReviews} />
         <Reviews hostInformation={this.state.hostInformation} currentPageReviews={this.state.currentPageReviews} stars={this.state.stars} />
         <PageBar beginningIndexForCurrentPageReviews={this.state.beginningIndexForCurrentPageReviews} toggleCurrentPageReviews={this.toggleCurrentPageReviews} visibleReviews={this.state.visibleReviews} />
-      </div>
+      </AppContainer>
     )
 
     return (
