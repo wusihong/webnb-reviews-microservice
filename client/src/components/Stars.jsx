@@ -19,17 +19,6 @@ const Stars = (props) => {
     }
     return arrOfStars;
   }
-  
-  // const renderStars = (arrOfStars) => {
-  //   {arrOfStars.map((star, index) => {
-  //     return (
-  //         <StarStyle key={index}>
-  //           {star}
-  //         </StarStyle> 
-  //       )
-  //     }
-  //   )}  
-  // }
 
   const starsAccuracy = generateArrayOfStars(props.stars.accuracy);
   const starsCommunication = generateArrayOfStars(props.stars.communication);

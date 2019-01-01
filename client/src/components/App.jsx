@@ -106,7 +106,7 @@ class App extends React.Component {
     const allReviewsView = (
       <AppContainer>
         <div><Divider /></div>
-        <TopBarContainer stars={this.state.stars} visibleReviews={this.state.visibleReviews} getFilteredReviews={this.getFilteredReviews} />
+        <TopBarContainer getStars={this.getStars} stars={this.state.stars} visibleReviews={this.state.visibleReviews} getFilteredReviews={this.getFilteredReviews} />
         <div><Divider /></div>
         <Stars stars={this.state.stars} />
         <ReviewsContainer hostInformation={this.state.hostInformation} currentPageReviews={this.state.currentPageReviews} stars={this.state.stars} 
