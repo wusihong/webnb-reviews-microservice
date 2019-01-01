@@ -1,11 +1,9 @@
 import React from 'react';
-import BlendedStars from './BlendedStars.jsx';
-import SearchReviews from './SearchReviews.jsx';
+import TopBarContainer from './TopBarContainer.jsx';
+import ReviewsContainer from './ReviewsContainer.jsx';
 import Stars from './Stars.jsx';
-import Reviews from './Reviews.jsx';
-import PageBar from './PageBar.jsx';
 import FilterMessage from './FilterMessage.jsx';
-import { AppContainer, FlexContainer_Row_SpaceBetween } from './Styles.js'; 
+import { AppContainer, Divider } from './Styles.js'; 
 
 class App extends React.Component {
 
@@ -107,25 +105,25 @@ class App extends React.Component {
 
     const allReviewsView = (
       <AppContainer>
-        <FlexContainer_Row_SpaceBetween>
-          <BlendedStars stars={this.state.stars} allReviews={this.state.visibleReviews}/>
-          <SearchReviews getFilteredReviews={this.getFilteredReviews} />
-        </FlexContainer_Row_SpaceBetween>
+        <div><Divider /></div>
+        <TopBarContainer stars={this.state.stars} visibleReviews={this.state.visibleReviews} getFilteredReviews={this.getFilteredReviews} />
+        <div><Divider /></div>
         <Stars stars={this.state.stars} />
-        <Reviews hostInformation={this.state.hostInformation} currentPageReviews={this.state.currentPageReviews} stars={this.state.stars} />
-        <PageBar beginningIndexForCurrentPageReviews={this.state.beginningIndexForCurrentPageReviews} toggleCurrentPageReviews={this.toggleCurrentPageReviews} visibleReviews={this.state.visibleReviews} />
+        <ReviewsContainer hostInformation={this.state.hostInformation} currentPageReviews={this.state.currentPageReviews} stars={this.state.stars} 
+        beginningIndexForCurrentPageReviews={this.state.beginningIndexForCurrentPageReviews} toggleCurrentPageReviews={this.toggleCurrentPageReviews} visibleReviews={this.state.visibleReviews}
+        />
       </AppContainer>
     )
 
     const filteredView = (
       <AppContainer>
-        <FlexContainer_Row_SpaceBetween>
-          <BlendedStars stars={this.state.stars} allReviews={this.state.allReviews}/>
-          <SearchReviews getFilteredReviews={this.getFilteredReviews} />
-        </FlexContainer_Row_SpaceBetween>
+        <div><Divider /></div>
+        <TopBarContainer stars={this.state.stars} visibleReviews={this.state.visibleReviews} getFilteredReviews={this.getFilteredReviews} />
+        <div><Divider /></div>
         <FilterMessage getAllReviews={this.getAllReviews} currentSearchTerm={this.state.currentSearchTerm} visibleReviews={this.state.visibleReviews} />
-        <Reviews hostInformation={this.state.hostInformation} currentPageReviews={this.state.currentPageReviews} stars={this.state.stars} />
-        <PageBar beginningIndexForCurrentPageReviews={this.state.beginningIndexForCurrentPageReviews} toggleCurrentPageReviews={this.toggleCurrentPageReviews} visibleReviews={this.state.visibleReviews} />
+        <ReviewsContainer hostInformation={this.state.hostInformation} currentPageReviews={this.state.currentPageReviews} stars={this.state.stars} 
+        beginningIndexForCurrentPageReviews={this.state.beginningIndexForCurrentPageReviews} toggleCurrentPageReviews={this.toggleCurrentPageReviews} visibleReviews={this.state.visibleReviews}
+        />
       </AppContainer>
     )
 

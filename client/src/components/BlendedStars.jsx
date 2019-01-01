@@ -4,7 +4,7 @@ import { StarStyle } from './Styles.js';
 const BlendedStars = (props) => {
 
   let blendedAvg = (props.stars.accuracy + props.stars.location + props.stars.communication + props.stars.check_in + props.stars.cleanliness + props.stars.value) / 6;
-  let numberOfReviews = props.allReviews.length;
+  let numberOfReviews = props.visibleReviews.length;
 
   const star = <i className="fas fa-star" />;
   const halfStar = <i className="fas fa-star-half" />;

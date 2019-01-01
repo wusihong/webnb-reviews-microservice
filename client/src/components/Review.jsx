@@ -23,7 +23,7 @@ const Review = (props) => {
       <ReviewContainer>
       {basicRender}
       <HostResponse hostInformation={props.hostInformation} review={props.review} />
-      <Divider></Divider>
+      <Divider />
       </ReviewContainer>
     )
   }
@@ -32,7 +32,7 @@ const Review = (props) => {
     return (
       <div>
         {basicRender}
-        <Divider></Divider>
+        <Divider />
       </div>
     )
 
