@@ -1,6 +1,6 @@
 import React from 'react';
 import HostResponse from './HostResponse.jsx';
-import { AvatarImage, FlexContainer_Row, ReviewContainer } from './Styles.js'; 
+import { AvatarImage, FlexContainer_Row, ReviewContainer, Divider } from './Styles.js'; 
 
 const Review = (props) => {
 
@@ -23,12 +23,19 @@ const Review = (props) => {
       <ReviewContainer>
       {basicRender}
       <HostResponse hostInformation={props.hostInformation} review={props.review} />
+      <Divider></Divider>
       </ReviewContainer>
     )
   }
   
   if(!hasHostResponse) {
-    return basicRender
+    return (
+      <div>
+        {basicRender}
+        <Divider></Divider>
+      </div>
+    )
+
   }
 }
 

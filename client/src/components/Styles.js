@@ -16,7 +16,7 @@ export const FlexContainer_Row_SpaceBetween = styled(FlexContainer_Row)`
 
 export const AppContainer = styled(FlexContainer_Column)`
   width: 450px;
-  border: 1px solid #FF585F;
+  font-size: 15px;
 `;
 
 export const AvatarImage = styled.img`
@@ -34,4 +34,25 @@ export const HostResponseContainer = styled.div`
   padding-top: 5px;
   padding-bottom: 5px;
   padding-left: 10px;
+`;
+
+export const Divider = styled.hr`
+  background-color: transparent;
+  border: 0.5px solid #ebebeb;
+`;
+
+export const StarStyle = styled.span`
+  color: #008699;
+  position: relative;
+  bottom: 2.5px;
+  font-size: xx-small;
+`;
+
+export const TextButton = styled.button`
+  padding: 0;
+  border: none;
+  font: inherit;
+  background-color: transparent;
+  font-size: 12px;
+  color: #008699;
 `;

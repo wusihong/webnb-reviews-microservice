@@ -1,10 +1,10 @@
 import React from 'react';
-import { FlexContainer_Row_SpaceBetween } from './Styles.js';
+import { FlexContainer_Row_SpaceBetween, TextButton } from './Styles.js';
 
 const FilterMessage = (props) => {
 
   const backToAllReviews = (
-    <button onClick={props.backToAllReviews} >Back to all reviews</button>
+    <TextButton onClick={props.backToAllReviews} >Back to all reviews</TextButton>
   )
 
   if(props.visibleReviews.length === 0) {

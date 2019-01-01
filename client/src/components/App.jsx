@@ -12,18 +12,68 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      hostInformation: this.props.hostInformation,
-      allReviews: this.props.reviews,
+      hostInformation: {},
+      allReviews: [],
       isFiltered: false,
       currentSearchTerm: '',
-      visibleReviews: this.props.reviews,
+      visibleReviews: [],
       beginningIndexForCurrentPageReviews: 0,
-      currentPageReviews: this.props.reviews.slice(0, 7),
-      stars: this.props.stars,
+      currentPageReviews: [],
+      stars: {},
     }
     this.getFilteredReviews = this.getFilteredReviews.bind(this);
     this.backToAllReviews = this.backToAllReviews.bind(this);
     this.toggleCurrentPageReviews = this.toggleCurrentPageReviews.bind(this);
+  }
+
+  componentDidMount() {
+    this.getAllReviews();
+    this.getHostInformation();
+    this.getStars();
+  }
+
+  getAllReviews() {
+    const roomId = window.location.pathname.slice(7, -1);
+    $.ajax({
+      method: 'GET',
+      url: `http://localhost:3000/rooms/${roomId}/reviews`,
+      success: (data) => {
+        this.setState({
+          allReviews: data,
+          isFiltered: false,
+          currentSearchTerm: '',
+          visibleReviews: data,
+          beginningIndexForCurrentPageReviews: 0,
+          currentPageReviews: data.slice(0,7),
+        })
+      }
+    })
+  }
+
+  getHostInformation() {
+    const roomId = window.location.pathname.slice(7, -1);
+    $.ajax({
+      method: 'GET',
+      url: `http://localhost:3000/rooms/${roomId}/hostDetails`,
+      success: (data) => {
+        this.setState({
+          hostInformation: data[0],
+        })
+      }
+    })
+  }
+
+  getStars() {
+    const roomId = window.location.pathname.slice(7, -1);
+    $.ajax({
+      method: 'GET',
+      url: `http://localhost:3000/rooms/${roomId}/stars`,
+      success: (data) => {
+        this.setState({
+          stars: data[0],
+        })
+      }
+    })
   }
 
   getFilteredReviews(searchTerm) {
@@ -79,9 +129,11 @@ class App extends React.Component {
 
     const filteredView = (
       <AppContainer>
-        <BlendedStars stars={this.state.stars} allReviews={this.state.allReviews}/>
+        <FlexContainer_Row_SpaceBetween>
+          <BlendedStars stars={this.state.stars} allReviews={this.state.allReviews}/>
+          <SearchReviews getFilteredReviews={this.getFilteredReviews} />
+        </FlexContainer_Row_SpaceBetween>
         <FilterMessage backToAllReviews={this.backToAllReviews} currentSearchTerm={this.state.currentSearchTerm} visibleReviews={this.state.visibleReviews} />
-        <SearchReviews getFilteredReviews={this.getFilteredReviews} />
         <Reviews hostInformation={this.state.hostInformation} currentPageReviews={this.state.currentPageReviews} stars={this.state.stars} />
         <PageBar beginningIndexForCurrentPageReviews={this.state.beginningIndexForCurrentPageReviews} toggleCurrentPageReviews={this.toggleCurrentPageReviews} visibleReviews={this.state.visibleReviews} />
       </AppContainer>
@@ -96,9 +148,7 @@ class App extends React.Component {
 
 }
 
-// replace dummy data with requests to back-end
-  // window.location.href 
-  // props type
+// Pagebar styling 
 
 // TODO LIST
 // foreign language functionality 
