@@ -23,7 +23,7 @@ const getHostDetailsByRoomId = (roomid, callback) => {
 }
 
 const getReviewsByRoomId = (roomid, callback) => {
-  var queryStr = `SELECT users.first_name, users.image_photo_path, reviews.room_id, reviews.review_date, 
+  var queryStr = `SELECT users.first_name, users.image_photo_path, reviews.room_id, DATE_FORMAT(reviews.review_date, '%M, %Y') AS 'review_date', 
   reviews.review_text, reviews.review_is_english, reviews.review_text_eng, 
   reviews.has_host_response, reviews.host_reply_text 
   FROM reviews INNER JOIN users ON reviews.reviewer_id = users.id
@@ -44,7 +44,7 @@ const getReviewsByRoomId = (roomid, callback) => {
 }
 
 const getReviewsByRoomIdAndQueryTerm = (roomid, queryTerm, callback) => {
-  var queryStr = `SELECT users.first_name, users.image_photo_path, reviews.room_id, reviews.review_date, 
+  var queryStr = `SELECT users.first_name, users.image_photo_path, reviews.room_id, DATE_FORMAT(reviews.review_date, '%M, %Y') AS 'review_date', 
   reviews.review_text, reviews.review_is_english, reviews.review_text_eng, reviews.has_host_response,
   reviews.host_reply_text 
   FROM reviews INNER JOIN users ON reviews.reviewer_id = users.id

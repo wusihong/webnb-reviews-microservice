@@ -11,15 +11,6 @@ const PageBar = (props) => {
 
   const backButton = <button onClick={() => {props.toggleCurrentPageReviews(props.beginningIndexForCurrentPageReviews - 7)}} >previous page</button>
   const forwardButton = <button onClick={() => {props.toggleCurrentPageReviews(props.beginningIndexForCurrentPageReviews + 7)}} >next page</button>
-  const pageButtons = (
-    <div>
-      {pageButtonsArray.map((pageNum, index) => {
-        const beginningIndexForReviews = index * 7;
-        return <PageBarNumberButton key={index} pageNum={pageNum} beginningIndexForReviews={beginningIndexForReviews} toggleCurrentPageReviews={props.toggleCurrentPageReviews} />
-      })
-      }
-    </div>
-  )
 
   if(props.beginningIndexForCurrentPageReviews + 7 > props.visibleReviews.length) {
     return (
@@ -62,6 +53,16 @@ const PageBar = (props) => {
 }
 
 export default PageBar;
+
+  // const pageButtons = (
+  //   <div>
+  //     {pageButtonsArray.map((pageNum, index) => {
+  //       const beginningIndexForReviews = index * 7;
+  //       return <PageBarNumberButton key={index} pageNum={pageNum} beginningIndexForReviews={beginningIndexForReviews} toggleCurrentPageReviews={props.toggleCurrentPageReviews} />
+  //     })
+  //     }
+  //   </div>
+  // )
 
 // onClick of nextArrow or previousArrow button 
   // 
