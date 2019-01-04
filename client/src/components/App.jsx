@@ -121,6 +121,7 @@ class App extends React.Component {
         <TopBarContainer stars={this.state.stars} visibleReviews={this.state.visibleReviews} getFilteredReviews={this.getFilteredReviews} />
         <div><Divider /></div>
         <FilterMessage getAllReviews={this.getAllReviews} currentSearchTerm={this.state.currentSearchTerm} visibleReviews={this.state.visibleReviews} />
+        <div><Divider /></div>
         <ReviewsContainer hostInformation={this.state.hostInformation} currentPageReviews={this.state.currentPageReviews} stars={this.state.stars} 
         beginningIndexForCurrentPageReviews={this.state.beginningIndexForCurrentPageReviews} toggleCurrentPageReviews={this.toggleCurrentPageReviews} visibleReviews={this.state.visibleReviews}
         />
