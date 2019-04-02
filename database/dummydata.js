@@ -3,18 +3,18 @@ const faker = require('faker');
 
 /////////Configurations/////////
 
-var NUM_OF_USERS = 300;
-var NUM_OF_ROOMS = 100;
-var NUM_OF_MESSAGES = 3000;
+let NUM_OF_USERS = 300;
+let NUM_OF_ROOMS = 100;
+let NUM_OF_MESSAGES = 3000;
 
-var usersQueryStr = `INSERT INTO users (first_name, last_name, image_photo_path) VALUES (?, ?, ?);`;
-var usersParams = ['first_name', 'last_name', 'image_photo_path'];
+let usersQueryStr = `INSERT INTO users (first_name, last_name, image_photo_path) VALUES (?, ?, ?);`;
+let usersParams = ['first_name', 'last_name', 'image_photo_path'];
 
-var roomsQueryStr = `INSERT INTO rooms (name, host_id) VALUES (?, ?);`;
-var roomsParams = ['name', 'host_id'];
+let roomsQueryStr = `INSERT INTO rooms (name, host_id) VALUES (?, ?);`;
+let roomsParams = ['name', 'host_id'];
 
-var reviewsQueryStr = `INSERT INTO reviews (reviewer_id, room_id, review_date, review_text, review_is_english, review_text_eng, has_host_response, host_reply_text, stars_accuracy, stars_communication, stars_location, stars_checkin, stars_cleanliness, stars_value) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);`;
-var reviewsParams = ['reviewer_id', 'room_id', 'review_date', 'review_text', 'review_is_english', 'review_text_eng', 'has_host_response', 'host_reply_text', 'stars_accuracy', 'stars_communication', 'stars_location', 'stars_checkin', 'stars_cleanliness', 'stars_value'];
+let reviewsQueryStr = `INSERT INTO reviews (reviewer_id, room_id, review_date, review_text, review_is_english, review_text_eng, has_host_response, host_reply_text, stars_accuracy, stars_communication, stars_location, stars_checkin, stars_cleanliness, stars_value) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);`;
+let reviewsParams = ['reviewer_id', 'room_id', 'review_date', 'review_text', 'review_is_english', 'review_text_eng', 'has_host_response', 'host_reply_text', 'stars_accuracy', 'stars_communication', 'stars_location', 'stars_checkin', 'stars_cleanliness', 'stars_value'];
 
 ////////Helper Functions///////
 
@@ -29,8 +29,8 @@ const getRandomBoolean = ()=> {
 ///////Table Generators/////////
 
 const createUsersTableData = () => {
-  var dummyData = [];
-  for (var i = 0; i < NUM_OF_USERS; i++) {
+  let dummyData = [];
+  for (let i = 0; i < NUM_OF_USERS; i++) {
     dummyData.push({ 
       first_name: faker.name.firstName(), 
       last_name: faker.name.lastName(), 
@@ -40,9 +40,9 @@ const createUsersTableData = () => {
   return dummyData; 
 }
 
-var createRoomsTableData = () => {
-  var dummyData = [];
-  for (var i = 0; i < NUM_OF_ROOMS; i++) {
+const createRoomsTableData = () => {
+  let dummyData = [];
+  for (let i = 0; i < NUM_OF_ROOMS; i++) {
     dummyData.push({
       name: faker.lorem.words(),
       host_id: getRandomInt(NUM_OF_USERS), 
@@ -51,9 +51,9 @@ var createRoomsTableData = () => {
   return dummyData;
 }
 
-var createReviewsTableData = () => {
-  var dummyData = [];
-  for (var i = 0; i < NUM_OF_MESSAGES; i++) {
+const createReviewsTableData = () => {
+  let dummyData = [];
+  for (let i = 0; i < NUM_OF_MESSAGES; i++) {
     dummyData.push({
       reviewer_id: getRandomInt(NUM_OF_USERS),
       room_id: getRandomInt(NUM_OF_ROOMS),
@@ -74,19 +74,19 @@ var createReviewsTableData = () => {
   return dummyData;
 }
 
-var seedTable = (tableGeneratorFunc, queryStr, params) => {
-  var usersDummyData = tableGeneratorFunc();
+const seedTable = (tableGeneratorFunc, queryStr, params) => {
+  let usersDummyData = tableGeneratorFunc();
 
   usersDummyData.forEach((row) => {
-    var rowParams = []
+    let rowParams = []
     params.forEach((string) => {
       rowParams.push(row[string]);
     })
     database.connection.query(queryStr, rowParams, (err, results) => {
       if (err) {
-        console.log(err);
+        console.log(err)
       } else {
-        console.log(results)
+        console.log('successfully seeded database: ', results);
       }
     })
   })
@@ -96,3 +96,83 @@ seedTable(createUsersTableData, usersQueryStr, usersParams);
 seedTable(createRoomsTableData, roomsQueryStr, roomsParams);
 seedTable(createReviewsTableData, reviewsQueryStr, reviewsParams);
 
+database.connection.end()
+
+/////////Refactor to Promises//////////
+
+// const usersDummyData = createUsersTableData();
+// const roomsDummyData = createRoomsTableData();
+// const reviewsDummyData = createReviewsTableData();
+
+// const usersPromises = [];
+// usersDummyData.forEach((row) => {
+//   var rowParams = []
+//   usersParams.forEach((string) => {
+//     rowParams.push(row[string]);
+//   })
+//   const usersPromise = new Promise((resolve, reject) => {
+//     database.connection.query(usersQueryStr, rowParams, (err, results) => {
+//       if (err) {
+//         console.log(err);
+//         reject(err)
+//       } else {
+//         console.log(results)
+//         resolve(results);
+//       }
+//     })
+//   })
+//   usersPromises.push(usersPromise);
+// })
+
+// Promise.all(usersPromises)
+//   .then(() => {
+    
+//     const roomsPromises = [];
+//     roomsDummyData.forEach((row) => {
+//       var rowParams = []
+//       roomsParams.forEach((string) => {
+//         rowParams.push(row[string]);
+//       })
+//       const roomsPromise = new Promise((resolve, reject) => {
+//         database.connection.query(roomsQueryStr, rowParams, (err, results) => {
+//           if (err) {
+//             console.log(err);
+//             reject(err)
+//           } else {
+//             console.log(results)
+//             resolve(results);
+//           }
+//         })
+//       })
+//       roomsPromises.push(roomsPromise);
+//     })
+
+//     Promise.all(roomsPromises).then(() => {
+
+//       const reviewsPromises = [];
+//       reviewsDummyData.forEach((row) => {
+//         var rowParams = []
+//         reviewsParams.forEach((string) => {
+//           rowParams.push(row[string]);
+//         })
+//         const reviewsPromise = new Promise((resolve, reject) => {
+//           database.connection.query(reviewsQueryStr, rowParams, (err, results) => {
+//             if (err) {
+//               console.log(err);
+//               reject(err)
+//             } else {
+//               console.log(results)
+//               resolve(results);
+//             }
+//           })
+//         })
+//         reviewsPromises.push(reviewsPromise);
+//       })
+
+//       Promise.all(reviewsPromises).then(() => {
+//         connection.end();
+//       });
+//     });
+//   })
+
+// database.connection.end()
