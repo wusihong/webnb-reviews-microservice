@@ -10,8 +10,7 @@
   "scripts": {
     "react-dev": "webpack -d --watch",
     "start": "nodemon server/server.js",
-    "seed": "mysql -u root -p < schema.sql && node database/dummydata.js",
-    "test": "jest",
+    "seed": "mysql -u root < schema.sql && node database/dummydata.js",
     "test-watch": "jest --watch",
     "test-coverage": "jest --coverage --colors"
   },
@@ -39,16 +38,11 @@
     "babel-plugin-styled-components": "^1.10.0",
     "enzyme": "^3.8.0",
     "enzyme-adapter-react-16": "^1.7.1",
-    "eslint": "^5.10.0",
-    "eslint-config-airbnb": "^17.1.0",
-    "eslint-plugin-import": "^2.14.0",
     "eslint-plugin-jsx-a11y": "^6.1.2",
-    "eslint-plugin-react": "^7.11.1",
     "faker": "^4.1.0",
     "jest": "^23.6.0",
     "mysql": "^2.16.0",
     "nodemon": "^1.18.9",
-    "sequelize": "^4.42.0",
     "webpack": "^4.28.1",
     "webpack-cli": "^3.1.2"
   }
