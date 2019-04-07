@@ -1,12 +1,9 @@
 # Project Name
 
-> Project description
+> The reviews module microservice for a hotel reservation app, using React, Express, MySql, and Docker. 
 
 ## Related Projects
 
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
   - https://github.com/teamName/repo
 
 ## Table of Contents
